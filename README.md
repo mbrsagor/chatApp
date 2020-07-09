@@ -12,9 +12,10 @@ If you've developed the django apps run on Windows, you should have little probl
 up and running.
 
 
-### Install ```vritualenv```
+### Install and active ```vritualenv```
 Activate `virutalenv` like
 ```
+virtualenv venv --python=python3.6
 source venv/bin/activate
 ```
 
