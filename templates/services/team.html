@@ -1,0 +1,50 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %} Amader Sheba - Online Service Seller {% endblock %}
+
+{% block content %}
+<main class="app-content">
+  <div class="col-md-12">
+    <div class="tile">
+      <h3 class="tile-title">টিমে নতুন মেম্বার যোগ করুন</h3>
+      <div class="tile-body">
+        <form class="form-horizontal" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="form-group row">
+            <label class="control-label col-md-3">নতুন মেম্বামের নাম</label>
+            <div class="col-md-8">
+              {{form.name}}
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="control-label col-md-3">মেম্বামের পদবি</label>
+            <div class="col-md-8">
+              {{form.designation}}
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="control-label col-md-3">মেম্বামের সম্পকে সৎক্ষিত লিখুন</label>
+            <div class="col-md-8">
+              {{form.description}}
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="control-label col-md-3">প্রোফাইল পিকচার অাপলড করুন</label>
+            <div class="col-md-8">
+              {{form.image}}
+            </div>
+          </div>
+          <div class="tile-footer">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-3">
+                <button class="btn btn-primary" type="submit">পাবলিশ করুন</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

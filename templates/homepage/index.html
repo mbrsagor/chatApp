@@ -1,0 +1,379 @@
+{% extends 'app/base_template.html' %}
+{% load static %}
+<!-- start block title -->
+{% block title %} হোম ||  অামাদের সেবা {% endblock %}
+<!-- end block title -->
+
+
+<!-- start block body -->
+{% block body %}
+
+<!-- Headline / START -->
+<div class="headline-divided headline-primary">
+
+    <div class="contents">
+
+        <div class="row">
+            <div class="col-xs-12 col-md-4 info">
+
+                <div class="page-subheader">
+                    <h2>আমাদের প্রিমিয়াম ফিচারগুলি</h2>
+                </div>
+
+                <div style="text-align:justify" class="description">
+                  আমরা সবসময় আমাদের প্রোডাকশন বায়ার ভাইদের বলি ক্রেতা বা ভুক্তা সবসময় ভালো চা পাতা চায়। অনেক চা ব্যবসায়ীরা সবসময় কম দামের চায়ের খোজ করেন, যাতে তারা
+প্রতিযোগীদের চেয়ে কম দামে তা বিক্রি করতে পারেন।কিন্ত সবসময় মনে রাখবেন, কম দামের চা কিনুন কিন্তু নিঁচু মানের চা কখনো কিনবেন না,নিঁচু মানের চা,পূরনো,মামুলি বা ক্ষতিকর হতে পারে।সবসময় নিলামকারীর নিকট থেকে কেনা ভালো।কম দামের চা ভাল বা স্বাস্থ্যকর হতে পারে,নাও হতে পারে,কিন্ত ভালো মানের চা সবসময় ভাল এবং স্বাস্থ্যকর।
+                </div>
+
+                <div class="actions">
+                    <a class="btn btn-clear"> বিস্তারিত  </a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-8 image">
+                <img src="{% static 'image/headline/4.jpg' %}" alt="Headline item"/>
+            </div>
+        </div>
+
+    </div>
+
+</div><!-- Headline / END -->
+
+<!-- Main content / START -->
+<div id="content">
+
+    <!-- Headline / START -->
+    <div class="lg-block headline">
+
+        <div class="container">
+
+            <div class="contents">
+
+                <div class="row">
+
+                    <div class="col-xs-12 col-sm-12 col-md-5">
+
+                        <h2 class="strong upper">প্রিমিয়াম ফিউচারস</h2>
+                        <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                        standard dummy text ever since the 1500s</p>
+
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-7 text-right">
+
+                        <div class="actions">
+
+                            <a href="{% url 'singin_views' %}" class="btn btn-lg btn-primary">
+                               লগইন করুন
+                            </a>
+
+                            <a href="{% url 'singup_views' %}" class="btn btn-lg btn-default">
+                                অ্যাকাউন্ট তৈরি করুন
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div><!-- Headline / END -->
+
+    <section id="portfolio">
+        <div class="container">
+
+            <!-- Latest work / START -->
+            <div class="lg-block text-center">
+
+                <div class="title-big">
+                    <h1>অামাদের সকল সেবা সমূহ</h1>
+                </div>
+
+                <div class="description">
+                  অামরা ব্যবসায়ী ভাই‌দের জন্য উৎপাদন ভি‌ওিক/চুক্তিভি‌ওিক পণ্য উৎপাদন ক‌রে থা‌কি।অামা‌দের কেমিস্ট্র দারা প‌ণ্যের গুনগত মান বজায় রে‌খে যতদূর সমভব স‌র্বোওম সেবা প্রদান করাই অামা‌দের উদেদ্শ্য। ব্যবসায়ী ভাই‌দের সা‌র্বিক সহ‌যো‌গিতা করার জন্য অামা‌দের র‌য়ে‌ছে ক‌ঠোর মান নিয়এন ও উৎপাদন করার জন্য এক্সপার্ট জনবল।
+ব্যবসায় সুদুর প্রসার কাঙ্ক্ষিত উন্নয়নে ব্যবসায়ী ভাই‌দের অামা‌দের সেবা গ্রহনের জন্য আপনাকে আমন্ত্রন জানাচ্ছি।
+                </div>
+
+            </div><!-- Latest work / END -->
+
+            <!-- Gallery / START -->
+            <ul class="gallery gallery-padded">
+
+              {% for service in service %}
+                <li class="item color-hoverlay default">
+                    <img src="/media/{{service.image}}" alt="1"/>
+                    <div class="contents-container">
+                        <div class="contents">
+                            <div class="controls">
+                                <a href="#" class="btn btn-dark"><i class="fa fa-search-plus"></i></a>
+                                <a href="{{service.service_ulr}}" class="btn btn-dark"><i class="fa fa-link"></i></a>
+                            </div>
+                            <h2 class="strong upper">{{service.name}}</h2>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul><!-- Gallery / END -->
+
+        </div><!-- Container / END -->
+    </section>
+
+    <section id="team">
+        <div class="container">
+
+            <!-- Our team / START -->
+            <div class="lg-block text-center">
+
+                <div class="title-big">
+                    <h1>অামাদের টিম মেম্বার সমূহ</h1>
+                </div>
+
+                <div class="description">
+                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
+                    by injected humour, or randomised words which don't look even slightly believable.
+                </div>
+
+            </div><!-- Our team / END -->
+
+            <div class="lg-block team">
+
+                <div class="row">
+
+                  {% for team in team %}
+                    <div class="col-xs-6 col-md-3">
+                        <!-- Team member / START -->
+                        <div class="member">
+                            <div class="color-hoverlay default">
+                                <img alt="Team member" src="/media/{{team.image}}"/>
+                                <div class="contents-container">
+                                    <div class="contents">
+                                        <a href="#" class="btn btn-dark">
+                                            <i class="fa fa-envelope"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-dark">
+                                            <i class="fa fa-link"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info">
+                                <div class="name">{{team.name}}</div>
+                                <div class="position">{{team.designation}}</div>
+                                <div class="description">
+                                    {{team.description}}
+                                </div>
+                            </div>
+                        </div><!-- Team member / END -->
+                    </div>
+                      {% endfor %}
+
+                    </div>
+
+                </div>
+
+            </div><!-- Team / END-->
+
+        </div><!-- Container / END -->
+    </section>
+
+    <section id="pricing">
+        <div class="bg-gray lg-padding-top lg-padding-bottom lg-margin-bottom">
+
+            <div class="container">
+
+                <!-- Pricing plans / START -->
+                <div class="lg-block text-center">
+
+                    <div class="title-big">
+                        <h1>আমাদের মূল্যায়নের পরিকল্পনাগুলি আপনার নিঃশ্বাস ফেলবে!</h1>
+                    </div>
+
+                    <div class="description">
+                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
+                        by injected humour, or randomised words which don't look even slightly believable.
+                    </div>
+
+                </div><!-- Pricing plans / END -->
+
+
+                <div class="lg-block pricing-plans no-margin-bottom">
+
+                    <div class="row">
+                      {% for price in pricing %}
+                        <div class="col-xs-12 col-md-4">
+                            <!-- Pricing plan / START -->
+                            <div class="plan">
+                                <div class="title">
+                                    <span>{{price.plane_name}}</span>
+                                </div>
+                                <div class="price">{{price.price}}<span class="currency">৳</span></div>
+
+                                <ul class="features">
+                                    <li>{{price.colum1}}</li>
+                                    <li>{{price.colum2}}</li>
+                                    <li>{{price.colum3}}</li>
+                                    <li>{{price.colum4}}</li>
+                                    <li>{{price.colum5}}</li>
+                                </ul>
+                            </div><!-- Pricing plan / END -->
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+
+            </div><!-- Container / END -->
+
+        </div><!-- Bg gray / END -->
+    </section>
+
+    <section id="testimonials">
+        <div class="container">
+
+            <!-- Testimonials / START -->
+            <div class="block text-center">
+
+                <div class="title-big">
+                    <h1>
+                      কাস্টমার রিভিউ
+                    </h1>
+                </div>
+
+            </div><!-- Testimonials / END -->
+
+            <div class="lg-block testimonials">
+
+                <div id="testimonials-carousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <div class="row">
+                                <!-- Testimonial / START -->
+                                {% for review in review %}
+                                <div class="col-xs-12 col-sm-6 col-md-4 testimonial">
+                                    <div class="comment">
+                                      {{review.comments}}
+                                    </div>
+                                    <div class="person">
+                                        <img src="/media/{{review.image}}" alt="Person" class="pull-left"/>
+                                        <div class="description pull-left">
+                                            <div class="name">{{review.name}}</div>
+                                            <div class="organization">{{review.designation}}</div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div><!-- Testimonial / END -->
+                                {% endfor %}
+                            </div><!-- Row / END -->
+
+                        </div><!-- Item / END -->
+
+                        <div class="item">
+                          <div class="row">
+                              <!-- Testimonial / START -->
+                              {% for review in review %}
+                              <div class="col-xs-12 col-sm-6 col-md-4 testimonial">
+                                  <div class="comment">
+                                    {{review.comments}}
+                                  </div>
+                                  <div class="person">
+                                      <img src="/media/{{review.image}}" alt="Person" class="pull-left"/>
+                                      <div class="description pull-left">
+                                          <div class="name">{{review.name}}</div>
+                                          <div class="organization">{{review.designation}}</div>
+                                      </div>
+                                      <div class="clear"></div>
+                                  </div>
+                              </div><!-- Testimonial / END -->
+                              {% endfor %}
+                          </div><!-- Row / END -->
+                        </div>
+                    </div>
+                </div>
+            </div><!-- Content / END -->
+        </div><!-- Container / END -->
+    </section>
+
+    <!-- Contact / START -->
+    <footer class="headline-divided headline-primary no-margin-bottom">
+
+        <div class="contents">
+
+            <div class="row">
+                <div class="col-xs-12 col-md-6 info left-section">
+
+                    <div class="page-subheader">
+                        <h2>অামাদের সাভিস</h2>
+                    </div>
+
+                    <div class="description sm-block">
+                        আমরা সর্ববৃহৎ অনলাইন সেবা কমিউনিটি তৈরী করতে যাচ্ছি এবং প্রত্যেকটা সেবা সফল ভাবে গড়ে তোলাই আমাদের প্রধান উদ্দেশ্য। অাপনার দৈন্দিন জীবনের প্রত্যেকটা জিনিশের সেবা অাপনি অামাদের ওয়েব সাইটের মাধ্যামে পাবেন। অাপনি যেকোন পরামর্শের জন্য অামাদের হট লাইনে যোগাযোগ করেত পারবেন। অাপনি ২৪ ঘন্টা ৭ দিনে অামাদের সেবা পাবেন।
+                    </div>
+
+                    <div class="sm-block footer-buttons">
+                        <a href="#" class="btn btn-clear">আমাদের সম্পর্কে</a>
+                        <a href="#" class="btn btn-clear">শর্তাবলী</a>
+                        <a href="#" class="btn btn-clear">নিয়ম নীতি</a>
+                    </div>
+
+                    <div class="sm-block address">
+                        <p>Uttara Sector#12, Road 1/A Dhaka-1230</p>
+                        <p>+880100000000</p>
+                        <p>info@amadersheba.com</p>
+                    </div>
+
+                    <div class="social-footer">
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-youtube"></i></a>
+                        <a href="#"><i class="fa fa-google"></i></a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6 bg-dark right-section">
+
+                    <div class="page-subheader">
+                        <h2>অামাদের সাথে যোগাযোগ করুন</h2>
+                    </div>
+
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <div class="controls">
+                              <p style="margin-bottom: 15px"> অাপনার মেইল *</p>
+                                {{form.from_email}}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="controls">
+                                <p style="margin-bottom: 15px"> অাপনার বিষয় *</p>
+                                {{form.subject}}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="controls">
+                                <p style="margin-bottom: 15px"> অাপনার মতামত *</p>
+                                {{form.message}}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-clear">মেসেস পাঠান</button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+    </footer><!-- Contact / END -->
+
+</div><!-- Main content / END -->
+
+{% endblock %}

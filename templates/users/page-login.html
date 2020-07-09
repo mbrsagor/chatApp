@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>লগইন পেজ -অামাদের সেবা</title>
+  </head>
+  <body>
+
+    <section class="material-half-bg">
+        <div class="cover"></div>
+      </section>
+      <section class="login-content">
+        <div class="logo">
+          <h1>Amader Sheba</h1>
+        </div>
+        <div class="login-box">
+          <form class="login-form" method="POST">
+            {% csrf_token %}
+            <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>প্রবেশ করুন</h3>
+            <div class="form-group">
+              <label class="control-label">ইউজারনেম</label>
+              <input class="form-control" type="text" placeholder="Username" name = "username" autofocus>
+            </div>
+            <div class="form-group">
+              <label class="control-label">পাসওয়ার্ড</label>
+              <input class="form-control" type="password" name = "password" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <div class="utility">
+                <p class="semibold-text mb-2"><a href="#" data-toggle="flip">পাসওয়ার্ড ভুলে গেছেন?</a></p>
+              </div>
+            </div>
+            <div class="form-group btn-container">
+              <button class="btn btn-primary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>প্রবেশ</button>
+            </div>
+          </form>
+          <form class="forget-form" method="POST">
+            {% csrf_token %}
+            <h3 style="font-size: 18px" class="login-head"><i class="fa fa-lg fa-fw fa-lock"></i>পাসওয়ার্ড ভুলে গেছেন?</h3>
+            <div class="form-group">
+              <label class="control-label">ইমেল</label>
+              <input class="form-control" type="text" placeholder="Email">
+            </div>
+            <div class="form-group btn-container">
+              <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-unlock fa-lg fa-fw"></i>রিসেট</button>
+            </div>
+            <div class="form-group mt-3">
+              <p class="semibold-text mb-0"><a href="#" data-toggle="flip"><i class="fa fa-angle-left fa-fw"></i>পেছন থেকে প্রবেশ করুন</a></p>
+            </div>
+          </form>
+          <!-- using message Freamwork -->
+          {% if messages %}
+          <div style="color: #f00; text-align: center" class="messages">
+              {% for message in messages %}
+              <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+              {% endfor %}
+          </div>
+          {% endif %}
+          <!-- end message freamwork -->
+        </div>
+      </section>
+    <!-- Essential javascripts for application to work-->
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="{% static 'js/plugins/pace.min.js' %}"></script>
+    <!-- Page specific javascripts-->
+    <script type="text/javascript" src="{% static 'js/plugins/chart.js' %}"></script>
+    <script type="text/javascript">
+      // Login Page Flipbox control
+      $('.login-content [data-toggle="flip"]').click(function() {
+      	$('.login-box').toggleClass('flipped');
+      	return false;
+      });
+    </script>
+    <script>
+    $(document).ready(function() {
+        // messages timeout for 10 sec
+        setTimeout(function() {
+            $('.messages').fadeOut('slow');
+        }, 2000); // <-- time in milliseconds, 1000 =  1 sec
+
+        // delete message
+        $('.del-msg').live('click',function(){
+            $('.del-msg').parent().attr('style', 'display:none;');
+        })
+    });
+  </script>
+  </body>
+</html>

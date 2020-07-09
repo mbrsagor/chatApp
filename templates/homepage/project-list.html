@@ -1,0 +1,198 @@
+{% extends 'app/base_template.html' %}
+{% load static %}
+<!-- start block title -->
+{% block title %} সকল পন্য ||  অামাদের সেবা {% endblock %}
+<!-- end block title -->
+
+
+<!-- start block body -->
+{% block body %}
+<section class="main_section">
+    <div class="container">
+        <div class="row">
+             <div class="col-lg-3">
+            <div class="single_widget">
+               <aside>
+                    <h3 class="widgetTitle">Sale Products</h3>
+                    <div class="widgetBody">
+                        <div class="topRatedProducts">
+                            <div class="singleProductsa">
+                                <img src="{% static 'image/gallery/1.jpg' %}" alt="">
+                                <h3><a href="shop_single.html">FASHION LADIES BAG</a></h3>
+                                <p class="pricess">$90.00 &nbsp;<del>$100.00</del></p>
+                            </div>
+                            <div class="singleProductsa">
+                                <img src="{% static 'image/gallery/2.jpg' %}" alt="">
+                                <h3><a href="shop_single.html">Trendy women T-Shirt</a></h3>
+                                <p class="pricess">$96.00 &nbsp;<del>$125.00</del></p>
+                            </div>
+                            <div class="singleProductsa">
+                                <img src="{% static 'image/gallery/3.jpg' %}" alt="">
+                                <h3><a href="shop_single.html">FASHION Mens Hats</a></h3>
+                                <p class="pricess">$60.00 &nbsp;<del>$70.00</del></p>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+             <div class="ads">
+                   <img src="{% static 'image/promo.png' %}">
+               </div>
+               <div class="ads">
+                     <img src="{% static 'image/1.png' %}">
+                 </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="projects">
+                  <!-- Mobile Phone  -->
+                  {% for item in mobile_obj %}
+                    <div class="single_project_list">
+                     <a href="{% url 'Details_product' item.id %}">
+                          <img src="/media/{{item.image}}"/>
+                        <h2>
+                           {{item.name}}
+                        </h2>
+                        <p>{{item.price}} </p>
+                        <p>Location: {{item.division}} </p>
+                    </a>
+                    </div>
+                    {% endfor %}
+                    <!-- Television   -->
+                    {% for item in tv_obj %}
+                      <div class="single_project_list">
+                       <a href="">
+                            <img src="/media/{{item.image}}"/>
+                          <h2>
+                             {{item.name}}
+                          </h2>
+                          <p>{{item.price}} </p>
+                          <p>Location: {{item.division}} </p>
+                      </a>
+                      </div>
+                      {% endfor %}
+
+                      <!-- property  -->
+                      {% for item in property_obj %}
+                        <div class="single_project_list">
+                         <a href="">
+                              <img src="/media/{{item.image}}"/>
+                            <h2>
+                               {{item.name}}
+                            </h2>
+                            <p>{{item.price}} </p>
+                            <p>Location: {{item.division}} </p>
+                        </a>
+                        </div>
+                        {% endfor %}
+
+                        <!-- study -->
+                        {% for item in study_obj %}
+                          <div class="single_project_list">
+                           <a href="">
+                                <img src="/media/{{item.image}}"/>
+                              <h2>
+                                 {{item.name}}
+                              </h2>
+                              <p>{{item.price}} </p>
+                              <p>Location: {{item.division}} </p>
+                          </a>
+                          </div>
+                          {% endfor %}
+
+                          <!-- computing -->
+                          {% for item in computing_obj %}
+                            <div class="single_project_list">
+                             <a href="">
+                                  <img src="/media/{{item.image}}"/>
+                                <h2>
+                                   {{item.name}}
+                                </h2>
+                                <p>{{item.price}} </p>
+                                <p>Location: {{item.division}} </p>
+                            </a>
+                            </div>
+                            {% endfor %}
+                </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="single_widget">
+                <aside>
+                <h3 class="widgetTitle">Category</h3>
+                <div class="widgetBody">
+                    <ul>
+                        {% for item in category_obj %}
+                        <li><a href="#">{{item.name}}</a><span>(03)</span></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                </aside>
+            </div>
+
+            <div class="single_widget">
+               <aside>
+                    <h3 class="widgetTitle">Sale Products</h3>
+                    <div class="widgetBody">
+                        <div class="topRatedProducts">
+                            <div class="singleProductsa">
+                                <img src="{% static 'image/gallery/1.jpg' %}"/>
+                                <h3><a href="shop_single.html">FASHION LADIES BAG</a></h3>
+                                <p class="pricess">$90.00 &nbsp;<del>$100.00</del></p>
+                            </div>
+                            <div class="singleProductsa">
+                                <img src="{% static 'image/gallery/2.jpg' %}"/>
+                                <h3><a href="shop_single.html">Trendy women T-Shirt</a></h3>
+                                <p class="pricess">$96.00 &nbsp;<del>$125.00</del></p>
+                            </div>
+                            <div class="singleProductsa">
+                                <img src="{% static 'image/gallery/3.jpg' %}"/>
+                                <h3><a href="shop_single.html">FASHION Mens Hats</a></h3>
+                                <p class="pricess">$60.00 &nbsp;<del>$70.00</del></p>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <div class="single_widget">
+                <aside>
+                <h3 class="widgetTitle">Brands</h3>
+                <div class="widgetBody">
+                    <ul>
+                        <li><a href="#">Black &amp; White</a><span>(03)</span></li>
+                        <li><a href="#">Caterpillar</a><span>(05)</span></li>
+                        <li><a href="#">Dozil</a><span>(10)</span></li>
+                        <li><a href="#">Eleep Biz</a><span>(20)</span></li>
+                        <li><a href="#">Kelvin Clin</a><span>(06)</span></li>
+                    </ul>
+                </div>
+                </aside>
+            </div>
+
+            <div class="single_widget">
+               <aside>
+                    <h3 class="widgetTitle">Sale Products</h3>
+                    <div class="widgetBody">
+                        <div class="topRatedProducts">
+                            <div class="singleProductsa">
+                                <img src="{% static 'image/gallery/1.jpg' %}"/>
+                                <h3><a href="shop_single.html">FASHION LADIES BAG</a></h3>
+                                <p class="pricess">$90.00 &nbsp;<del>$100.00</del></p>
+                            </div>
+                            <div class="singleProductsa">
+                                <img src="{% static 'image/gallery/2.jpg' %}"/>
+                                <h3><a href="shop_single.html">Trendy women T-Shirt</a></h3>
+                                <p class="pricess">$96.00 &nbsp;<del>$125.00</del></p>
+                            </div>
+                            <div class="singleProductsa">
+                                <img src="{% static 'image/gallery/3.jpg' %}"/>
+                                <h3><a href="shop_single.html">FASHION Mens Hats</a></h3>
+                                <p class="pricess">$60.00 &nbsp;<del>$70.00</del></p>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

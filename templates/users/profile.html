@@ -1,0 +1,52 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %} অামাদের সেবা - অনলাইন সেবা প্রদানকার {% endblock %}
+
+{% block content %}
+<main class="app-content">
+  <div class="app-title">
+        <div>
+          <h3 class="tile-title">অামার প্রোফাইল</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="tile">
+
+              <p>ফুল নাম: {{profile.full_name}}</p>
+              <p>জন্ম তারিখ: {{profile.date_of_birth}}</p>
+              <p>লিঙ্গ : {{profile.gender}}</p>
+              <p>ফোন নম্বর: {{profile.phone_number}}</p>
+              <p>ঠিকানা: {{profile.address}}</p>
+              <p>পেশা: {{profile.profession}}</p>
+              <p>{{profile.user_bio}}</p>
+              <img src="/media/{{profile.image}}" width="230px">
+
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="tile">
+            <table class="table table-hover table-bordered dataTable no-footer">
+              <thead>
+                <tr>
+                  <th>প্রথম নাম</th>
+                  <th>দ্বিতীয় নাম</th>
+                  <th>ইউজার নাম</th>
+                  <th>ই-মেইল</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{user.first_name}}</td>
+                  <td>{{user.last_name}}</td>
+                  <td>{{user.username}}</td>
+                  <td>{{user.email}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+</main>
+{% endblock %}

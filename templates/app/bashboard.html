@@ -1,0 +1,107 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %} অামাদের সেবা - অনলাইন সেবা প্রদানকার {% endblock %}
+
+{% block content %}
+<main class="app-content">
+  <div class="app-title">
+        <div>
+          <h1><i class="fa fa-dashboard"></i> ড্যাশবোর্ড</h1>
+          <p>অনলাইন সেবা প্রদানকারী</p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb">
+          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+          <li class="breadcrumb-item"><a href="{% url 'dashboard_views' %}">ড্যাশবোর্ড</a></li>
+        </ul>
+      </div>
+      {% if perms.user %}
+      <div class="row">
+        <div class="col-md-6 col-lg-3">
+          <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
+            <div class="info">
+              <h4>মোট ব্যবহারকারী</h4>
+              <p><b>{{count_users}}</b></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="widget-small info coloured-icon"><i class="icon fa fa-user fa-3x"></i>
+            <div class="info">
+              <h4>মোট টিম/দলের সদস্য</h4>
+              <p><b>{{count_team_member}}</b></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="widget-small warning coloured-icon"><i class="icon fa fa-files-o fa-3x"></i>
+            <div class="info">
+              <h4>মোট আপলোড পণ্য</h4>
+              <p><b>10</b></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="widget-small danger coloured-icon"><i class="icon fa fa-star fa-3x"></i>
+            <div class="info">
+              <h4>মোট রিভিউ</h4>
+              <p><b>{{count_review}}</b></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="tile">
+            <h3 class="tile-title">মাসিক বিক্রয়</h3>
+            <div class="embed-responsive embed-responsive-16by9">
+              <canvas class="embed-responsive-item" id="lineChartDemo" width="962" height="540" style="width: 625px; height: 351px;"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="tile">
+            <h3 class="tile-title">নতুন পণ্য</h3>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>পূণ্য নাম</th>
+                  <th>তারিখ</th>
+                </tr>
+              </thead>
+              {% for obj in mobile_obj %}
+              <tbody>
+                <tr class="table-info">
+                  <td>{{obj.name}}</td>
+                  <td>{{obj.create_at}}</td>
+                </tr>
+              </tbody>
+              {% endfor %}
+            </table>
+          </div>
+        </div>
+      </div>
+      {% else %}
+      <div class="tile">
+        <h3 class="tile-title">নতুন পণ্য</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>পূণ্য নাম</th>
+              <th>তারিখ</th>
+            </tr>
+          </thead>
+          {% for obj in mobile_obj %}
+          <tbody>
+            <tr class="table-info">
+              <td>{{obj.name}}</td>
+              <td>{{obj.create_at}}</td>
+            </tr>
+          </tbody>
+          {% endfor %}
+        </table>
+      </div>
+      {% endif %}
+
+</main>
+{% endblock %}

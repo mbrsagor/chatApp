@@ -1,0 +1,68 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %} Amader Sheba - Online Service Seller {% endblock %}
+
+{% block content %}
+<main class="app-content">
+  <div class="app-title">
+        <div>
+          <h3 class="tile-title">প্রোফাইল সম্পাদনা করুন</h3>
+        </div>
+        <ul class="app-breadcrumb breadcrumb">
+          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+          <li class="breadcrumb-item"><a href="{% url 'dashboard_views' %}">ড্যাশবোর্ড</a></li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="tile">
+            <div class="tile-body">
+              <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label class="control-label">অাপনার ফুল নাম</label>
+                  {{form.full_name}}
+                </div>
+                <div class="form-group">
+                  <label class="control-label">জন্ম তারিখ</label>
+                  {{form.date_of_birth}}
+                </div>
+                <div class="form-group">
+                  <label class="control-label">লিঙ্গ নির্বাচন করুন</label>
+                    {{form.gender}}
+                </div>
+                <div class="form-group">
+                  <label class="control-label">অাপনার ফোন নম্বার</label>
+                    {{form.phone_number}}
+                </div>
+                <div class="form-group">
+                  <label class="control-label">অাপনার প্রোফাইল ফটো</label>
+                  {{form.image}}
+                </div>
+            </div>
+            <div class="tile-footer">
+              <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>অাপডেট করুন</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="tile">
+            <div class="form-group">
+              <label class="control-label">অাপনার ঠিকান</label>
+              {{form.address}}
+            </div>
+            <div class="form-group">
+              <label class="control-label">অাপনার পেশা</label>
+              {{form.profession}}
+            </div>
+            <div class="form-group">
+              <label class="control-label">অাপনার সম্পর্কে কিছু লিখুন</label>
+              {{form.user_bio}}
+            </div>
+          </div>
+        </div>
+        </form>
+      </div>
+</main>
+{% endblock %}

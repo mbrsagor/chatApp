@@ -1,0 +1,95 @@
+{%  load static %}
+<!DOCTYPE html>
+<html lang="en-GB">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content="Senseras"/>
+
+        <title>{% block title %} {% endblock %}</title>
+
+        <link rel="shortcut icon" href="{% static 'image/favicon.png' %}" type="image/png"/>
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+
+        <!-- Style -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" />
+        <link rel="stylesheet" href="{% static 'css/homepage/main.css' %}" type="text/css" />
+        <link rel="stylesheet" href="{% static 'css/homepage/orange.css' %}" type="text/css" />
+
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <!-- Navigation / START -->
+        <nav class="navbar navbar-default">
+            <div class="container">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Show menu</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a class="navbar-brand" id="logo" href="/">
+                        <span class="highlight-text">অামাদের</span>সেবা
+                    </a>
+                </div>
+
+
+                <div id="navbar" class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li style="background: #444;margin-right: 70px;" class="drop active">
+                            <a href="{% url 'singin_views' %}">
+                                আপনার বিজ্ঞাপন দিন
+                            </a>
+                        </li>
+
+                        <li style="background: #f36510 !important;" class="drop active">
+                            <a style="color: #fff" href="{% url 'all_service_display' %}">
+                                সকল বিজ্ঞাপন
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </nav><!-- Navigation / END -->
+
+        <!-- start block body -->
+        {% block body %}
+        {% endblock %}
+        <footer class="footer">
+            <div class="container">
+
+                <span class="copyright">
+                    কপিরাইট ২০১৮ | সমস্ত অধিকার পরিবেশিত || ডেভেলপ বাই
+                    <a style="color: #fff;margin-left: 10px;font-weight: bold" href="http:///www.sourcecodesoft.com">সোর্স কোড সফট</a>
+                </span>
+
+                <span class="links">
+                    <a href="#">সেবা পাবার শর্ত</a>
+                    <a href="#">নীতিমালা</a>
+                </span>
+
+            </div>
+        </footer>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="{% static 'css/homepage/js/main.js' %}"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    </body>
+</html>

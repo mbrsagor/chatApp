@@ -1,0 +1,81 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %} Amader Sheba - Online Service Seller {% endblock %}
+
+{% block content %}
+<main class="app-content">
+<form method="POST" enctype="multipart/form-data" >
+  {% csrf_token %}
+    <div class="tile">
+      <h3 class="tile-title">কম্পিউটিং এর জন্য বিজ্ঞাপন</h3>
+      <div class="tile-body">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label class="control-label"> শিরোনাম</label>
+              {{form.name}}
+            </div>
+            <div class="form-group">
+              <label class="control-label"> কম্পিউটিং ধরণ </label>
+              {{form.computing_type}}
+            </div>
+            <div class="form-group">
+              <label class="control-label"> কম্পিউটিং জেনারেশন </label>
+              {{form.model}}
+            </div>
+            <div class="form-group">
+              <label class="control-label">অাপনার বতমান ঠিকানা</label>
+              {{form.address}}
+            </div>
+            <div class="form-group">
+              <label class="control-label">কম্পিউটিং ব্র্যান্ড</label>
+              {{form.brand}}
+            </div>
+            <div class="form-group">
+              <label class="control-label">কম্পিউটিং মূল্য/দাম</label>
+              {{form.price}}
+            </div>
+            <div class="form-group">
+              <label class="control-label">একটি ছবি অাপলোড করুন</label>
+              {{form.image}}
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+                <label class="form-check-label">
+                {{form.negotiable}} দাম আলোচনা সাপেক্ষে
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label class="control-label">কম্পিউটিং কন্ডিশন</label>
+              {{form.condition}}
+            </div>
+            <div class="form-group">
+              <label class="control-label">ক্যাটাগরি</label>
+              {{form.category}}
+            </div>
+            <div class="form-group">
+              <label class="control-label">বিভাগ</label>
+              {{form.division}}
+            </div>
+            <div class="form-group">
+              <label class="control-label">অাপনার কন্টাক নাম্বার</label>
+              {{form.phone_number}}
+            </div>
+            <div class="form-group">
+              <label class="control-label">কম্পিউটিং সম্পকে লিখুন বিস্তারিত</label>
+              {{form.description}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tile-footer">
+      <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>পাবলিশ করুন</button>
+    </div>
+</form>
+</main>
+{% endblock %}
