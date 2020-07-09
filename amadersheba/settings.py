@@ -26,7 +26,7 @@ SECRET_KEY = 'g1q(fd-hv#e0yaqqzqj4ulk74cb1g4zh&@3=pme+q1!8szhtf1'
 DEBUG = True
 # handler404 = 'main.views.not_found'
 
-ALLOWED_HOST=["*"]
+ALLOWED_HOST=[]
 
 # Application definition
 
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # Custom App
     'userinfo',
     'services',
 ]
