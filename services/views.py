@@ -23,7 +23,7 @@ def adpost_views(request):
                 messages.add_message(request, messages.WARNING, 'দুঃখিত!! অাপনার পােষ্টটি সম্পন্যভাবে অাপডেট হয়নি')
 
     else:
-        return redirect('http://127.0.0.1:8000/singin')
+        return redirect('singup_views')
 
     context = {
         'form' : form
@@ -47,7 +47,7 @@ def adpost_television_views(request):
             else:
                 messages.add_message(request, messages.WARNING, 'দুঃখিত!! অাপনার পােষ্টটি সম্পন্যভাবে অাপডেট হয়নি')
     else:
-        return redirect('http://127.0.0.1:8000/singin')
+        return redirect('singup_views')
     context = {
         'form' : form
     }
@@ -70,7 +70,7 @@ def adpost_computing_views(request):
             else:
                 messages.add_message(request, messages.WARNING, 'দুঃখিত!! অাপনার পােষ্টটি সম্পন্যভাবে অাপডেট হয়নি')
     else:
-        return redirect('http://127.0.0.1:8000/singin')
+        return redirect('singup_views')
     context = {
         'form' : form
     }
@@ -93,7 +93,7 @@ def adpost_property_views(request):
             else:
                 messages.add_message(request, messages.WARNING, 'দুঃখিত!! অাপনার পােষ্টটি সম্পন্যভাবে অাপডেট হয়নি')
     else:
-        return redirect('http://127.0.0.1:8000/singin')
+        return redirect('singup_views')
     context = {
         'form' : form
     }
@@ -117,7 +117,7 @@ def adPost_study_views(request):
                 messages.add_message(request, messages.WARNING, 'দুঃখিত!! অাপনার পােষ্টটি সম্পন্যভাবে অাপডেট হয়নি')
 
     else:
-        return redirect('http://127.0.0.1:8000/singin')
+        return redirect('singup_views')
     context = {
         'form' : form
     }
@@ -178,7 +178,7 @@ def list_of_display(request):
             'mobile_obj' : mobile_obj,
         }
     else:
-        return redirect('http://127.0.0.1:8000/singin')
+        return redirect('singup_views')
     return render(request, 'services/list_of_product.html', context)
 
 
@@ -193,12 +193,11 @@ def list_of_delete(request, id):
         return redirect(list_of_display)
 
     else:
-        return redirect('http://127.0.0.1:8000/singin')
-
+        return redirect('singup_views')
 
 
 # 404 page
-
 def error_404(request):
+
         data = {}
         return render(request,'app/error_404.html', data)
