@@ -10,3 +10,23 @@ The following steps will walk you thru installation Ubuntu. Linux related others
 It's also possible to develop on a Windows machine, but I have not documented the steps.
 If you've developed the django apps run on Windows, you should have little problem getting
 up and running.
+
+
+### Install ```vritualenv```
+Activate `virutalenv` like
+```
+source venv/bin/activate
+```
+
+### Run the project
+```
+pip install -r requirements.text
+```
+
+
+### Migrate and create superuser
+```
+./manage.py makemigrations
+./manage.py migrate
+./manage.py createsuperuser
+```
