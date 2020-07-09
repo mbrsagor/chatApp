@@ -5,3 +5,8 @@
 You have must be install python3 and Django 2.0 on your operation system. Be default I used `sqlite` database in the project. If may use another `database` in this app.
 
 <h3>Fist you will clone the product from github</h3>
+
+The following steps will walk you thru installation Ubuntu. Linux related others OS should be similar.
+It's also possible to develop on a Windows machine, but I have not documented the steps.
+If you've developed the django apps run on Windows, you should have little problem getting
+up and running.
