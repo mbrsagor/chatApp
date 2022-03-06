@@ -1,7 +1,9 @@
-.ide
 venv
+.vscode
+.idea/
+__pycache__/
+db.sqlite3
+migrations/
+media/
 .env
-media
-db.sqlite
-__pycache__
-
+.DS_Store
