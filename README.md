@@ -28,7 +28,13 @@ source venv/bin/activate
 ```
 pip install -r requirements.text
 ```
+###### Then create ``.env`` file and paste code from `sample.env` file and add validate information.
 
+-------------------------------------------
+```bash
+|--> sample.env
+|--> .env
+```
 
 ### Migrate and create superuser
 ```
