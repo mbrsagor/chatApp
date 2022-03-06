@@ -54,6 +54,7 @@ INTERNAL_APPS = [
 # OTHERS APPS
 THIRD_PARTY_APPS = [
     'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + INTERNAL_APPS + THIRD_PARTY_APPS

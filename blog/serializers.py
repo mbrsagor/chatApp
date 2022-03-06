@@ -21,7 +21,23 @@ class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
         depth = 1
-        fields = '__all__'
+        fields = [
+            'id',
+            'user',
+            'slug',
+            'title',
+            'categories',
+            'tags',
+            'content',
+            'is_draft',
+            'is_publish',
+            'total_articles',
+            'total_publish_articles',
+            'total_draft_articles',
+            'image',
+            'created_at',
+            'updated_at',
+        ]
 
 
 class ArticleCreateSerializer(serializers.ModelSerializer):

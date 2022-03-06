@@ -37,3 +37,15 @@ class Article(DomainEntity):
 
     def __str__(self):
         return self.title[:30]
+
+    @property
+    def total_articles(self):
+        return Article.objects.count()
+
+    @property
+    def total_publish_articles(self):
+        return Article.objects.filter(is_publish=True).count()
+
+    @property
+    def total_draft_articles(self):
+        return Article.objects.filter(is_draft=True).count()
