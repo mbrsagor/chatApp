@@ -4,4 +4,5 @@ from blog import views
 urlpatterns = [
     path('category/', views.CategoryCreateListView.as_view()),
     path('articles/', views.ArticleListView.as_view()),
+    path('create-article/', views.ArticleCreateView.as_view()),
 ]
