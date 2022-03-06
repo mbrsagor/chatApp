@@ -28,3 +28,17 @@ class ArticleCreateView(generics.CreateAPIView):
             serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class ArticleUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
+    permission_classes = (permissions.IsAuthenticated,)
+    lookup_field = 'id'
+
+
+class ArticleDetailsView(generics.RetrieveAPIView):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
+    permission_classes = (permissions.AllowAny,)
+    lookup_field = 'id'

@@ -5,4 +5,6 @@ urlpatterns = [
     path('category/', views.CategoryCreateListView.as_view()),
     path('articles/', views.ArticleListView.as_view()),
     path('create-article/', views.ArticleCreateView.as_view()),
+    path('article/<id>/', views.ArticleUpdateDeleteView.as_view()),
+    path('article-details/<id>/', views.ArticleDetailsView.as_view()),
 ]
