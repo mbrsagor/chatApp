@@ -32,7 +32,7 @@ class Article(DomainEntity):
     tags = models.ManyToManyField(Tag, related_name='tag', blank=True)
     content = models.TextField()
     is_draft = models.BooleanField(default=False)
-    is_publish = models.BooleanField(default=False)
+    is_publish = models.BooleanField(default=True)
     image = models.ImageField(upload_to='blog', blank=True, null=True)
 
     def __str__(self):
