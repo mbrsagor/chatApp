@@ -25,7 +25,7 @@ class Tag(DomainEntity):
 
 
 class Article(DomainEntity):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='author')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='author')
     slug = models.SlugField()
     title = models.CharField(max_length=120)
     categories = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='blogCategory')
@@ -49,3 +49,11 @@ class Article(DomainEntity):
     @property
     def total_draft_articles(self):
         return Article.objects.filter(is_draft=True).count()
+
+
+class Comment(DomainEntity):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='commentUser')
+    text = models.TextField()
+    articles = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='commentArticle')
+
+    def __str__(self): return self.text

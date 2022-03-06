@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Category, Article, Tag
+from .models import Category, Article, Tag, Comment
 
 
 class TagSerializer(serializers.ModelSerializer):
@@ -70,7 +70,7 @@ class ArticleCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Article
-        read_only_fields = ('user',)
+        read_only_fields = ('author',)
         fields = [
             'id',
             'user',
@@ -85,3 +85,9 @@ class ArticleCreateSerializer(serializers.ModelSerializer):
             'created_at',
             'updated_at',
         ]
+
+
+class CommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
+        fields = '__all__'
