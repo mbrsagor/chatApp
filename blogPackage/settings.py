@@ -53,6 +53,7 @@ INTERNAL_APPS = [
 
 # OTHERS APPS
 THIRD_PARTY_APPS = [
+    'dj_swift_auth',
     'rest_framework',
     'rest_framework.authtoken',
 ]
@@ -145,3 +146,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+AUTH_USER_MODEL = 'dj_swift_auth.User'

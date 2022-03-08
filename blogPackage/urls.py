@@ -23,6 +23,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('blog.urls')),
+    path('api/user/', include('dj_swift_auth.urls')),
 ]
 
 if settings.DEBUG:
