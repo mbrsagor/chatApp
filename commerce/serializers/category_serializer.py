@@ -1,9 +1,17 @@
 from rest_framework import serializers
 
-from commerce.models.category import Category
+from commerce.models.category import Category, Tag
 
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = '__all__'
+
+
+class TagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tag
+        fields = (
+            'id', 'name'
+        )
