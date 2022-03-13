@@ -3,7 +3,6 @@
 
 ## Setup
 - Python 3.8
-- Django 4.0.1
 - Postgresql 13.0
 
 <h3>Fist you will clone the product from github</h3>
@@ -42,4 +41,9 @@ pip install -r requirements.text
 ./manage.py makemigrations
 ./manage.py migrate
 ./manage.py createsuperuser
+```
+
+#### Open postgres using terminal database:
+```
+psql postgres 
 ```
