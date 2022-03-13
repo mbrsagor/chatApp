@@ -5,7 +5,7 @@
 - Python 3.8
 - Postgresql 13.0
 
-<h3>Fist you will clone the product from github</h3>
+###### Fist you will clone the product from github
 ```bash
 https://github.com/mbrsagor/eshop.git
 ```
