@@ -1,5 +1,5 @@
-# Blog Package
-##### The project is a basically Django Blog package which users can implemented any project for the blog app.
+# Eshop ecommerce Package
+##### The project is a basically Django E-commerce package which users can implemented any project for the blog app.
 
 ## Setup
 - Python 3.8
@@ -8,7 +8,7 @@
 
 <h3>Fist you will clone the product from github</h3>
 ```bash
-git clone https://github.com/mbrsagor/blog-package.git
+https://github.com/mbrsagor/eshop.git
 ```
 
 The following steps will walk you thru installation Ubuntu. Linux related others OS should be similar.
@@ -20,7 +20,8 @@ up and running.
 ### Install and active ```vritualenv```
 Activate `virutalenv` like
 ```
-virtualenv venv --python=python3.6
+cd eshop
+virtualenv venv --python=python3.8
 source venv/bin/activate
 ```
 
