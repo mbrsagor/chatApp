@@ -14,7 +14,7 @@ class Product(CoreEntity):
     slug = models.SlugField(unique=True, blank=True, null=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='item_shop')
     categories = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='item_category')
-    tags = models.ManyToManyField(Tag, related_name='item_tag')
+    tags = models.ManyToManyField(Tag, related_name='item_tag', blank=True)
     is_available = models.BooleanField(default=True)
     price = models.DecimalField(max_digits=10, decimal_places=7)
     discount_price = models.DecimalField(max_digits=10, decimal_places=7)
