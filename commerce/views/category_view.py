@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics, permissions
 
 from commerce.models.category import Category
 from commerce.serializers.category_serializer import CategorySerializer
@@ -7,6 +7,10 @@ from commerce.serializers.category_serializer import CategorySerializer
 class CategoryCrateListView(generics.ListCreateAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+    permission_classes = (permissions.IsAdminUser,)
 
-    # def list(self, request, *args, **kwargs):
-    #     pass
+
+class CategoryUpdateDeleteView(generics.UpdateAPIView, generics.DestroyAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+    permission_classes = (permissions.IsAdminUser,)

@@ -2,8 +2,13 @@ from rest_framework import generics, status
 from rest_framework.response import Response
 
 from commerce.models.product import Product
-from commerce.serializers.product_serializer import ProductSerializer
+from commerce.serializers.product_serializer import ProductSerializer, GenericProductSerializer
 from commerce.utils.response import prepare_create_success_response, prepare_success_response, prepare_error_response
+
+
+class AllProducts(generics.ListAPIView):
+    queryset = Product.objects.all()
+    serializer_class = GenericProductSerializer
 
 
 class CreateListProductView(generics.ListCreateAPIView):

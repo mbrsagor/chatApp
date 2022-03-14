@@ -21,3 +21,10 @@ class ProductSerializer(serializers.ModelSerializer):
         response = super().to_representation(instance)
         response['categories'] = CategorySerializer(instance.categories).data
         return response
+
+
+class GenericProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        depth = 2
+        fields = '__all__'
