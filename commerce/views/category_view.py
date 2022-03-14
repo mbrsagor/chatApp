@@ -19,4 +19,9 @@ class CategoryUpdateDeleteView(generics.UpdateAPIView, generics.DestroyAPIView):
 class ModelAPIView(generics.ListCreateAPIView):
     queryset = Model.objects.all()
     serializer_class = ModelSerializer
-    # permission_classes = (permissions.IsAdminUser,)
+    permission_classes = (permissions.IsAuthenticated,)
+
+
+class ModelUpdateDeleteView(generics.UpdateAPIView, generics.DestroyAPIView):
+    queryset = Model.objects.all()
+    serializer_class = ModelSerializer
