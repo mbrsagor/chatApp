@@ -6,7 +6,7 @@ from commerce.serializers.product_serializer import ProductSerializer, GenericPr
 from commerce.utils.response import prepare_create_success_response, prepare_success_response, prepare_error_response
 
 
-class AllProducts(generics.ListAPIView):
+class AllProductsView(generics.ListAPIView):
     queryset = Product.objects.all()
     serializer_class = GenericProductSerializer
 

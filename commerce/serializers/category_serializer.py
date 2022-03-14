@@ -19,5 +19,5 @@ class TagSerializer(serializers.ModelSerializer):
 
 class ModelSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Category
+        model = Model
         fields = '__all__'
