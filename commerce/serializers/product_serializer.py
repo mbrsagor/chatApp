@@ -1,11 +1,12 @@
 from rest_framework import serializers
 
 from commerce.models.product import Product
+from commerce.models.category import Tag
 from commerce.serializers.category_serializer import CategorySerializer, TagSerializer
 
 
 class ProductSerializer(serializers.ModelSerializer):
-    tags = TagSerializer(many=True).data
+    tags = TagSerializer(many=True)
 
     class Meta:
         model = Product
@@ -21,6 +22,31 @@ class ProductSerializer(serializers.ModelSerializer):
         response = super().to_representation(instance)
         response['categories'] = CategorySerializer(instance.categories).data
         return response
+
+    def get_or_create_tag(self, tags):
+        tag_ids = []
+        for tag in tags:
+            tag_instance, create = Tag.objects.get_or_create(pk=tag.get('id'), defaults=tag)
+            tag_ids.append(tag_instance.pk)
+        return tag_ids
+
+    def create_or_update_tag(self, tags):
+        tag_ids = []
+        for tag in tags:
+            tag_instance, create = Tag.objects.update_or_create(pk=tag.get('id'), defaults=tag)
+            tag_ids.append(tag_instance.pk)
+        return tag_ids
+
+    def create(self, validated_data):
+        tags = validated_data.pop('tags', [])
+        product = Product.objects.create(**validated_data)
+        product.tags.set(self.get_or_create_tag(tags))
+        return product
+
+    def update(self, instance, validated_data):
+        tags = validated_data.pop('tags', [])
+        instance.tags.set(self.create_or_update_tag(tags))
+        return instance
 
 
 class GenericProductSerializer(serializers.ModelSerializer):
