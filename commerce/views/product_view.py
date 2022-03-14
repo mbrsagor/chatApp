@@ -20,3 +20,8 @@ class CreateListProductView(generics.ListCreateAPIView):
         product = Product.objects.filter(owner=self.request.user)
         serializer = ProductSerializer(product, many=True)
         return Response(prepare_success_response(serializer.data), status=status.HTTP_200_OK)
+
+
+class ProductDetailsView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
