@@ -4,7 +4,7 @@ from django.utils.text import slugify
 from django.dispatch import receiver
 from django.db.models.signals import pre_save
 
-from commerce.models import Category, Tag
+from commerce.models import Category, Tag, Model
 from commerce.models.core import CoreEntity
 from commerce.utils.enum import TYPES
 
@@ -14,12 +14,12 @@ class Product(CoreEntity):
     slug = models.SlugField(unique=True, blank=True, null=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='item_shop')
     categories = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='item_category')
+    model_number = models.ForeignKey(Model, on_delete=models.CASCADE, related_name='item_model', blank=True, null=True)
     tags = models.ManyToManyField(Tag, related_name='item_tag', blank=True)
     is_available = models.BooleanField(default=True)
     price = models.DecimalField(max_digits=10, decimal_places=7)
     discount_price = models.DecimalField(max_digits=10, decimal_places=7)
     short_description = models.TextField(default='')
-    model = models.CharField(max_length=60, blank=True, null=True)
     serial_number = models.CharField(max_length=90, blank=True, null=True)
     item_type = models.IntegerField(choices=TYPES.select_types(), default=TYPES.KG.value)
     item_image = models.ImageField(upload_to='item/%y/%m', blank=True, null=True)

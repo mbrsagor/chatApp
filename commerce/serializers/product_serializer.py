@@ -13,7 +13,7 @@ class ProductSerializer(serializers.ModelSerializer):
         read_only_fields = ('owner',)
         fields = (
             'id', 'item_name', 'owner', 'categories', 'tags', 'is_available', 'price', 'discount_price',
-            'short_description', 'model', 'serial_number', 'item_type', 'item_image', 'galley_image',
+            'short_description', 'model_number', 'serial_number', 'item_type', 'item_image', 'galley_image',
             'galley_image2', 'galley_image3', 'created_at', 'updated_at'
 
         )

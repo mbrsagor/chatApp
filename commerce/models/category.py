@@ -12,6 +12,14 @@ class Category(CoreEntity):
         return self.name
 
 
+class Model(CoreEntity):
+    name = models.CharField(max_length=50, unique=True)
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.name
+
+
 class Tag(CoreEntity):
     name = models.CharField(max_length=50)
 
