@@ -1,16 +1,6 @@
 from enum import IntEnum
 
 
-class GENDER(IntEnum):
-    MALE = 0
-    FEMALE = 1
-    OTHERS = 2
-
-    @classmethod
-    def select_gender(cls):
-        return [(key.value, key.name) for key in cls]
-
-
 class TYPES(IntEnum):
     KG = 0
     PCS = 1
@@ -21,7 +11,7 @@ class TYPES(IntEnum):
         return [(key.value, key.name) for key in cls]
 
 
-class PROGRESS(IntEnum):
+class STATUS(IntEnum):
     PENDING = 0
     CANCEL = 1
     FAILED = 2

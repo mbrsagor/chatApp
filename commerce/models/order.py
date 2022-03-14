@@ -2,6 +2,7 @@ from django.db import models
 
 from commerce.models import Product
 from commerce.models.core import CoreEntity
+from commerce.utils.enum import STATUS, PAYMENT
 
 
 class Order(CoreEntity):
@@ -11,10 +12,11 @@ class Order(CoreEntity):
     address = models.CharField(max_length=150)
     postal_code = models.CharField(max_length=30)
     city = models.CharField(max_length=100)
-    paid = models.BooleanField(default=False)
+    payment_status = models.IntegerField(choices=PAYMENT.payment_choices(), default=PAYMENT.CASH_ON_DELIVERY.value)
+    status = models.IntegerField(choices=STATUS.order_status(), default=STATUS.PENDING.value)
 
     def __str__(self):
-        return 'Order {}'.format(self.id)
+        return f"Customer Name: {self.full_name} Phone Number: {self.phn_number}"
 
     def get_total_cost(self):
         return sum(item.get_cost() for item in self.items.all())
@@ -27,7 +29,7 @@ class OrderItem(models.Model):
     quantity = models.PositiveIntegerField(default=1)
 
     def __str__(self):
-        return '{}'.format(self.id)
+        return self.id
 
     def get_cost(self):
         return self.price * self.quantity
