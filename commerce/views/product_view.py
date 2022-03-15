@@ -1,4 +1,4 @@
-from rest_framework import generics, status, permissions
+from rest_framework import generics, views, status, permissions
 from rest_framework.response import Response
 
 from commerce.models.product import Product
@@ -34,29 +34,32 @@ class CreateListProductView(generics.ListCreateAPIView):
             return Response(prepare_error_response('No Product found'), status=status.HTTP_400_BAD_REQUEST)
 
 
-class ProductDetailsView(generics.RetrieveUpdateDestroyAPIView):
+class ProductDetailsUpdateView(generics.RetrieveUpdateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     lookup_field = 'slug'
 
-    # def get_product(self, pk):
-    #     try:
-    #         return Product.objects.get(id=pk)
-    #     except Product.DoesNotExist:
-    #         return None
-
     def update(self, request, *args, **kwargs):
-        partial = kwargs.pop('partial', False)
-        instance = self.get_object()
-        serializer = self.get_serializer(instance, data=request.data, partial=partial)
-        serializer.is_valid(raise_exception=True)
-        self.perform_update(serializer)
-        return Response(prepare_create_success_response(serializer.data), status=status.HTTP_201_CREATED)
+        _slug = self.request.data.get('slug')
+        serializer = ProductSerializer(Product.objects.get(slug=_slug), data=request.data, partial=True)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save(owner=request.user)
+            return Response(prepare_create_success_response(serializer.data), status=status.HTTP_201_CREATED)
+        return Response(prepare_error_response(serializer.errors), status=status.HTTP_400_BAD_REQUEST)
 
-    def destroy(self, request, *args, **kwargs):
-        instance = self.get_object()
+
+class ProductDeleteAPIView(views.APIView):
+
+    def get_object(self, pk):
+        try:
+            return Product.objects.get(id=pk)
+        except Product.DoesNotExist:
+            return None
+
+    def delete(self, request, pk):
+        instance = self.get_object(pk)
         if instance:
-            self.perform_destroy(instance)
+            instance.delete()
             return Response(prepare_success_response('Data deleted successfully'), status=status.HTTP_204_NO_CONTENT)
         else:
             return Response(prepare_error_response('Content Not found'), status=status.HTTP_400_BAD_REQUEST)
