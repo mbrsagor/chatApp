@@ -33,7 +33,7 @@ class OrderItem(models.Model):
 class Order(CoreEntity):
     customer = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orderCustomer')
     ref_code = models.CharField(max_length=20, default="0")
-    items = models.ManyToManyField(OrderItem, related_name='orders')
+    items = models.ManyToManyField(OrderItem, related_name='orderItem')
     ordered_date = models.DateTimeField()
     ordered = models.BooleanField(default=False)
     billing_address = models.CharField(max_length=150, blank=True, null=True)
