@@ -6,28 +6,28 @@ from commerce.models.core import CoreEntity
 from commerce.utils.enum import STATUS, PAYMENT
 
 
-class OrderItem(models.Model):
+class OrderItem(CoreEntity):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='customer')
     ordered = models.BooleanField(default=False)
     item = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
 
     def __str__(self):
-        return self.id
+        return f"Item: {self.item} Quantity: {self.quantity}"
 
-    def get_total_item_price(self):
+    def get_total_price(self):
         return self.quantity * self.item.price
 
-    def get_total_discounted_item_price(self):
+    def get_total_discounted_price(self):
         return self.quantity * self.item.discount_price
 
     def get_amount_saved(self):
-        return self.get_total_item_price() - self.get_total_discounted_item_price()
+        return self.get_total_price() - self.get_total_discounted_price()
 
     def get_final_price(self):
         if self.item.discount_price:
-            return self.get_total_discounted_item_price()
-        return self.get_total_item_price()
+            return self.get_total_discounted_price()
+        return self.get_total_price()
 
 
 class Order(CoreEntity):

@@ -19,11 +19,11 @@ class CreateListOrderItemView(generics.ListCreateAPIView):
 
     def list(self, request, *args, **kwargs):
         if not self.request.user.is_superuser:
-            order_item = Order.objects.filter(user=self.request.user)
+            order_item = OrderItem.objects.filter(user=self.request.user)
             serializer = OrderItemSerializer(order_item, many=True)
             return Response(prepare_success_response(serializer.data))
         else:
-            order_item = Order.objects.all()
+            order_item = OrderItem.objects.all()
             serializer = OrderItemSerializer(order_item, many=True)
             return Response(prepare_success_response(serializer.data))
 
