@@ -25,7 +25,7 @@ class OrderSerializer(serializers.ModelSerializer):
         model = Order
         read_only_fields = ('customer',)
         fields = (
-            'id', 'customer', 'ref_code', 'items', 'ordered_date', 'ordered',
-            'billing_address', 'being_delivered', 'received', 'status', 'payment', 'get_total',
+            'id', 'customer', 'ref_code', 'items', 'ordered', 'billing_address',
+            'being_delivered', 'received', 'status', 'payment', 'get_total',
             'created_at', 'updated_at',
         )

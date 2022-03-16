@@ -19,6 +19,8 @@ urlpatterns = [
     path('product/', product_view.CreateListProductView.as_view(), name='product_crate_list'),
     path('product/<slug>/', product_view.ProductDetailsUpdateView.as_view(), name='product_update_details'),
     path('product-delete/<pk>/', product_view.ProductDeleteAPIView.as_view(), name='product_delete'),
-    # Order API endpoints
+    # Order Item API endpoints
     path('order-item/', order_view.CreateListOrderItemView.as_view(), name='order_item_list_create'),
+    # Order API endpoints
+    path('order/', order_view.CreateOrderView.as_view(), name='order_item_list_create'),
 ]

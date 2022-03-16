@@ -11,23 +11,36 @@ class CreateListOrderItemView(generics.ListCreateAPIView):
     serializer_class = OrderItemSerializer
 
     def post(self, request, *args, **kwargs):
-        serializer = OrderItemSerializer(data=request.data)
-        if serializer.is_valid(raise_exception=True):
-            serializer.save(user=self.request.user)
-            return Response(prepare_create_success_response(serializer.data), status=status.HTTP_201_CREATED)
-        return Response(prepare_error_response(serializer.errors), status=status.HTTP_400_BAD_REQUEST)
+        try:
+            serializer = OrderItemSerializer(data=request.data)
+            if serializer.is_valid(raise_exception=True):
+                serializer.save(user=self.request.user)
+                return Response(prepare_create_success_response(serializer.data), status=status.HTTP_201_CREATED)
+            return Response(prepare_error_response(serializer.errors), status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response(prepare_success_response(str(e)), status=status.HTTP_400_BAD_REQUEST)
 
     def list(self, request, *args, **kwargs):
         if not self.request.user.is_superuser:
             order_item = OrderItem.objects.filter(user=self.request.user)
             serializer = OrderItemSerializer(order_item, many=True)
-            return Response(prepare_success_response(serializer.data))
+            return Response(prepare_success_response(serializer.data), status=status.HTTP_200_OK)
         else:
             order_item = OrderItem.objects.all()
             serializer = OrderItemSerializer(order_item, many=True)
-            return Response(prepare_success_response(serializer.data))
+            return Response(prepare_success_response(serializer.data), status=status.HTTP_200_OK)
 
 
 class CreateOrderView(generics.CreateAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
+
+    def post(self, request, *args, **kwargs):
+        try:
+            serializer = OrderSerializer(data=request.data)
+            if serializer.is_valid(raise_exception=True):
+                serializer.save(customer=request.user)
+                return Response(prepare_create_success_response(serializer.data), status=status.HTTP_201_CREATED)
+            return Response(prepare_error_response(serializer.errors), status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response(prepare_success_response(str(e)), status=status.HTTP_400_BAD_REQUEST)
