@@ -23,4 +23,9 @@ class OrderItemSerializer(serializers.ModelSerializer):
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
-        fields = '__all__'
+        read_only_fields = ('customer',)
+        fields = (
+            'id', 'customer', 'ref_code', 'items', 'ordered_date', 'ordered',
+            'billing_address', 'being_delivered', 'received', 'status', 'payment', 'get_total',
+            'created_at', 'updated_at',
+        )
