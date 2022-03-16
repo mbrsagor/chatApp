@@ -11,7 +11,7 @@ class OrderItemSerializer(serializers.ModelSerializer):
         fields = (
             'id', 'user', 'ordered', 'item', 'quantity', 'get_total_price',
             'get_total_discounted_price', 'get_amount_saved', 'get_final_price',
-            'created_at', 'updated_at',
+            'order_ide', 'created_at', 'updated_at',
         )
 
     def to_representation(self, instance):
@@ -27,7 +27,7 @@ class OrderSerializer(serializers.ModelSerializer):
         fields = (
             'id', 'customer', 'ref_code', 'items', 'ordered', 'billing_address',
             'being_delivered', 'received', 'status', 'payment', 'get_total',
-            'created_at', 'updated_at',
+            'order_ide', 'created_at', 'updated_at',
         )
 
 

@@ -17,13 +17,16 @@ class CreateListProductView(generics.ListCreateAPIView):
     permission_classes = (permissions.IsAuthenticated,)
 
     def post(self, request, *args, **kwargs):
-        serializer = ProductSerializer(data=request.data)
-        if serializer.is_valid(raise_exception=True):
-            serializer.save(owner=self.request.user)
-            return Response(prepare_create_success_response(serializer.data), status=status.HTTP_201_CREATED)
-        else:
-            return Response(prepare_error_response('You have no permission to add product'),
-                            status=status.HTTP_400_BAD_REQUEST)
+        try:
+            serializer = ProductSerializer(data=request.data)
+            if serializer.is_valid(raise_exception=True):
+                serializer.save(owner=self.request.user)
+                return Response(prepare_create_success_response(serializer.data), status=status.HTTP_201_CREATED)
+            else:
+                return Response(prepare_error_response('You have no permission to add product'),
+                                status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response(prepare_success_response(str(e)), status=status.HTTP_400_BAD_REQUEST)
 
     def list(self, request, *args, **kwargs):
         product = Product.objects.filter(owner=self.request.user)

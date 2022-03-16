@@ -1,3 +1,5 @@
+import uuid
+
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -38,6 +40,7 @@ class Order(CoreEntity):
     billing_address = models.CharField(max_length=150, blank=True, null=True)
     being_delivered = models.BooleanField(default=False)
     received = models.BooleanField(default=False)
+    order_ide = models.CharField(max_length=25, blank=True, null=True, unique=True)
     status = models.IntegerField(choices=STATUS.order_status(), default=STATUS.PENDING.value)
     payment = models.IntegerField(choices=PAYMENT.payment_choices(), default=PAYMENT.CASH_ON_DELIVERY.value)
 
@@ -49,3 +52,12 @@ class Order(CoreEntity):
         for order_item in self.items.all():
             total += order_item.get_final_price()
         return total
+
+    def save(self, *args, **kwargs):
+        system_code = self.order_ide
+        if not system_code:
+            system_code = uuid.uuid4().hex[:6].upper()
+        while Order.objects.filter(order_ide=system_code).exclude(pk=self.pk).exists():
+            system_code = uuid.uuid4().hex[:6].upper()
+        self.order_ide = system_code
+        super(Order, self).save(*args, **kwargs)
