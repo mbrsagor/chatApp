@@ -22,5 +22,6 @@ urlpatterns = [
     # Order Item API endpoints
     path('order-item/', order_view.CreateListOrderItemView.as_view(), name='order_item_list_create'),
     # Order API endpoints
-    path('order/', order_view.CreateOrderView.as_view(), name='order_item_list_create'),
+    path('order/', order_view.CreateOrderView.as_view(), name='order_create'),
+    path('orders/', order_view.OrderListHistoryAPIView.as_view(), name='order_item_list'),
 ]

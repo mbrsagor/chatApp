@@ -29,3 +29,14 @@ class OrderSerializer(serializers.ModelSerializer):
             'being_delivered', 'received', 'status', 'payment', 'get_total',
             'created_at', 'updated_at',
         )
+
+
+class OrderListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        depth = 2
+        fields = (
+            'id', 'customer', 'ref_code', 'items', 'ordered', 'billing_address',
+            'being_delivered', 'received', 'status', 'payment', 'get_total',
+            'created_at', 'updated_at',
+        )
