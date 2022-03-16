@@ -6,7 +6,7 @@ class Category(CoreEntity):
     name = models.CharField(max_length=70, unique=True)
     parent = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True, related_name='parentCategory')
     is_active = models.BooleanField(default=True)
-    image = models.ImageField(upload_to='category/%y/%m', blank=True, null=True, default='/static/category.svg')
+    image = models.ImageField(upload_to='category/%y/%m', blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -15,6 +15,15 @@ class Category(CoreEntity):
 class Model(CoreEntity):
     name = models.CharField(max_length=50, unique=True)
     is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.name
+
+
+class Brand(CoreEntity):
+    name = models.CharField(max_length=50, unique=True)
+    is_active = models.BooleanField(default=True)
+    image = models.ImageField(upload_to='brand/%y/%m', blank=True, null=True)
 
     def __str__(self):
         return self.name

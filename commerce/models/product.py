@@ -4,7 +4,7 @@ from django.utils.text import slugify
 from django.dispatch import receiver
 from django.db.models.signals import pre_save
 
-from commerce.models import Category, Tag, Model
+from commerce.models import Category, Tag, Model, Brand
 from commerce.models.core import CoreEntity
 from commerce.utils.enum import TYPES
 
@@ -14,6 +14,7 @@ class Product(CoreEntity):
     slug = models.SlugField(unique=True, blank=True, null=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='item_shop')
     categories = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='item_category')
+    brand_name = models.ForeignKey(Brand, on_delete=models.CASCADE, related_name='item_brand', blank=True, null=True)
     model_number = models.ForeignKey(Model, on_delete=models.CASCADE, related_name='item_model', blank=True, null=True)
     tags = models.ManyToManyField(Tag, related_name='item_tag', blank=True)
     is_available = models.BooleanField(default=True)

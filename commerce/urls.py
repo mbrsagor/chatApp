@@ -11,6 +11,9 @@ urlpatterns = [
     # Category API endpoints
     path('category/', category_view.CategoryCrateListView.as_view(), name='category_crate_list'),
     path('category/<pk>/', category_view.CategoryUpdateDeleteView.as_view(), name='category_update_delete'),
+    # Brand API endpoints
+    path('brand/', category_view.BrandCrateListAPIView.as_view(), name='brand_crate_list'),
+    path('brand/<pk>/', category_view.BrandUpdateDeleteView.as_view(), name='brand_update_delete'),
     # product API endpoints
     path('products/', product_view.AllProductsView.as_view(), name='all_products'),
     path('product/', product_view.CreateListProductView.as_view(), name='product_crate_list'),
