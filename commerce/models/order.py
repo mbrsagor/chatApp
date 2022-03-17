@@ -45,7 +45,7 @@ class Order(CoreEntity):
     payment = models.IntegerField(choices=PAYMENT.payment_choices(), default=PAYMENT.CASH_ON_DELIVERY.value)
 
     def __str__(self):
-        return self.customer.username
+        return f"OrderID: {self.order_ide} || Orders: {self.items.all()}"
 
     def get_total(self):
         total = 0
