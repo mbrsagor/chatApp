@@ -57,7 +57,7 @@ class OrderListHistoryAPIView(generics.ListAPIView):
                 serializer = OrderListDetailSerializer(order, many=True)
                 return Response(prepare_success_response(serializer.data), status=status.HTTP_200_OK)
             else:
-                order = Order.objects.filter(customer=self.request.user).order_by('-id')
+                order = Order.objects.filter(customer=self.request.user, ordered=True).order_by('-id')
                 serializer = OrderListDetailSerializer(order, many=True)
                 return Response(prepare_success_response(serializer.data), status=status.HTTP_200_OK)
         except Exception as e:
