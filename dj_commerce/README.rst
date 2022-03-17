@@ -33,4 +33,4 @@ Quick start
 API endpoint:
 ==============
 1. Root API: ``api/v1/commerce/``
-Download the postman collection from here: http://johnmacfarlane.net/pandoc/try
+Download the postman collection from here: http://surl.li/bocru
