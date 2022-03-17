@@ -1,18 +1,19 @@
-==================
+============
 dj-commerce
-==================
+============
 
 Django rest framework E-commerce package which has simple beautiful eCommerce features.
 
 Features:
 ==========
-1. Product Management.
-2. Category, Brand, Model, Brand, Serial number Management.
-3. Semi-multi vendor (for the beta version).
-4. Easy order Management system.
+1. Below some features::
+    1) Product Management.
+    2) Category, Brand, Model, Brand, Serial number Management.
+    3) Semi-multi vendor (for the beta version).
+    4) Easy order Management system.
 
 Quick start
-=============
+============
 
 1. Add `commerce` app in your `INSTALLED_APPS` settings like this::
 
