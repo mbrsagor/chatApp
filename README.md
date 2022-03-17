@@ -47,3 +47,13 @@ pip install -r requirements.text
 ```
 psql postgres 
 ```
+
+### Production deploy:
+
+```bash
+python setup.py sdist
+python setup.py bdist_wheel
+pip install twine
+twine check dist/*
+twine upload --repository pypi dist/*
+```

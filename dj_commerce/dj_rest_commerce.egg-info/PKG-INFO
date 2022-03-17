@@ -1,3 +1,28 @@
+Metadata-Version: 2.1
+Name: dj-rest-commerce
+Version: 1.1
+Summary: Django rest framework E-commerce package
+Home-page: https://mbrsagorbd.wordpress.com/djcommercedocs
+Author: Bozlur Rosid Sagor
+Author-email: brshagor.cse@gmail.com
+Maintainer-email: mbrsagor@gmail.com
+License: MIT
+Keywords: E-commerce Django e-commerce
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+License-File: LICENSE
+
 =================
 dj-rest-commerce
 =================
@@ -35,3 +60,5 @@ API endpoint:
 ==============
 1. Root API: ``api/v1/commerce/``
 Download the postman collection from here: http://surl.li/bocru
+
+
