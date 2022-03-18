@@ -1,0 +1,790 @@
+{
+	"info": {
+		"_postman_id": "fd6c9907-78a5-47b6-b820-96345e02a8a9",
+		"name": "eshop-package",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "create-category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token d4d265e5cfeb89c371bbc741b39d9e1f495709e8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"name\": \"Man Cloths\",\n        \"is_active\": true,\n        \"image\": null,\n        \"parent\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/commerce/category/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"commerce",
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "category-list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token d4d265e5cfeb89c371bbc741b39d9e1f495709e8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/commerce/category/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"commerce",
+								"category",
+								""
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-category",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 5,\n    \"name\": \"Woman Category\",\n    \"is_active\": true,\n    \"image\": null,\n    \"parent\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/commerce/category/5/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"commerce",
+								"category",
+								"5",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "category-delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/commerce/category/5/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"commerce",
+								"category",
+								"5",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "product-list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 25593fa2c5c03a348755ec508604a5af9c568ed8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/commerce/products/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"commerce",
+								"products",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token b9b85883bd3836979b7f0fff2914f5d78d15e685",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"item_name\": \"New collection winter shart for man\",\n    \"categories\": 1,\n    \"tags\": [\n        {\"name\": \"woman\"},\n        {\"name\": \"cloth\"}\n    ],\n    \"is_available\": true,\n    \"price\": 180.00,\n    \"discount_price\": 20.00,\n    \"short_description\": \"Hello, this is a short description\",\n    \"model_number\": 2,\n    \"brand_name\": 9,\n    \"serial_number\": \"s2-88750\",\n    \"item_type\": 0,\n    \"item_image\": null,\n    \"galley_image\": null,\n    \"galley_image2\": null,\n    \"galley_image3\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/commerce/product/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"commerce",
+								"product",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "product-update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 25593fa2c5c03a348755ec508604a5af9c568ed8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 32,\n    \"item_name\": \"hot Woman sprint new session t-shart\",\n    \"categories\": 3,\n    \"tags\": [\n        {\"name\": \"woman\"},\n        {\"name\": \"cloth\"}\n    ],\n    \"is_available\": true,\n    \"price\": 180.00,\n    \"discount_price\": 20.00,\n    \"short_description\": \"Hello, this is a short description\",\n    \"model_number\": 5,\n    \"serial_number\": \"s2-8875\",\n    \"item_type\": 0,\n    \"item_image\": null,\n    \"galley_image\": null,\n    \"galley_image2\": null,\n    \"galley_image3\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/commerce/product/woman-sprint-full-t-shart/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"commerce",
+								"product",
+								"woman-sprint-full-t-shart",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "item-delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 25593fa2c5c03a348755ec508604a5af9c568ed8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/commerce/product-delete/25/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"commerce",
+								"product-delete",
+								"25",
+								""
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "model",
+			"item": [
+				{
+					"name": "all-models",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 25593fa2c5c03a348755ec508604a5af9c568ed8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/commerce/model/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"commerce",
+								"model",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-model",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 25593fa2c5c03a348755ec508604a5af9c568ed8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"M2\",\n    \"is_active\": true\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/commerce/model/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"commerce",
+								"model",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "model-update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token f2040478b0aaecb1346f300a0eb512a55b858197",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 12,\n    \"name\": \"M2 pro\",\n    \"is_active\": true\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/commerce/model/12/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"commerce",
+								"model",
+								"12",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "model delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token f2040478b0aaecb1346f300a0eb512a55b858197",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/commerce/model/12/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"commerce",
+								"model",
+								"12",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "card-item",
+			"item": [
+				{
+					"name": "list of order item",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token b9b85883bd3836979b7f0fff2914f5d78d15e685",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/commerce/order-item/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"commerce",
+								"order-item",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Card items",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token b9b85883bd3836979b7f0fff2914f5d78d15e685",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ordered\": false,\n    \"item\": 4,\n    \"quantity\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/commerce/order-item/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"commerce",
+								"order-item",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "test",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 422d80b4effe2985666b919eb07488af2632425ad42cbcba6326ecdce014d863",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://66.42.33.227/api/v1/no-token-product-list/",
+							"protocol": "http",
+							"host": [
+								"66",
+								"42",
+								"33",
+								"227"
+							],
+							"path": [
+								"api",
+								"v1",
+								"no-token-product-list",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "test2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 422d80b4effe2985666b919eb07488af2632425ad42cbcba6326ecdce014d863",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n            \"id\": 84,\n            \"vendor\": {\n                \"id\": 1,\n                \"user\": {\n                    \"id\": 2,\n                    \"phone_no\": \"01921954822\",\n                    \"first_name\": \"Obahe\",\n                    \"last_name\": \"Limited\",\n                    \"user_photo\": null,\n                    \"is_admin\": true,\n                    \"point\": 0.0,\n                    \"cash_back_balance\": 200.0,\n                    \"uid\": \"OBAH22\",\n                    \"used_uid\": \"\",\n                    \"used_invitation_code\": true,\n                    \"email\": \"obahegb@gmail.com\",\n                    \"address\": \"Motin Market, Puran Bazar, Gaibandha\",\n                    \"group\": 1,\n                    \"post_code\": \"5700\",\n                    \"district\": 1,\n                    \"districts\": {\n                        \"id\": 1,\n                        \"name\": \"Gaibandha\"\n                    },\n                    \"user_shipping_address\": null,\n                    \"user_billing_address\": null,\n                    \"is_active\": true\n                },\n                \"shop_name\": \"Obahe\",\n                \"tag_name\": null,\n                \"shop_address\": \"Motin Market, Puran Bazar, Gaibandha\",\n                \"shop_trade_license\": \"6549781616494654651\",\n                \"commision\": 10.0,\n                \"total_sales\": null,\n                \"total_receivale\": null,\n                \"shop_details\": null,\n                \"shop_logo\": null,\n                \"shop_image\": null,\n                \"slug\": \"obahe\",\n                \"status\": 1,\n                \"payment_type\": 2,\n                \"account_name\": null,\n                \"account_number\": null,\n                \"bank_name\": null,\n                \"routing_number\": null,\n                \"branch_name\": null,\n                \"mobile_banking_type\": 1,\n                \"wallet_number\": \"01980804696\",\n                \"verified\": true,\n                \"created_by\": null,\n                \"updated_by\": null\n            },\n            \"product_details_info\": [],\n            \"up_sell_product\": null,\n            \"cross_sell_product\": null,\n            \"primary_categories\": [\n                {\n                    \"id\": 1,\n                    \"name\": \"Popular\",\n                    \"image\": \"http://66.42.33.227/media/primary_category/e81cd2b2-e4c0-428d-a4a4-88a391d344c8.png\",\n                    \"slug\": \"popular\",\n                    \"class_name\": \"null\",\n                    \"serial_no\": 2,\n                    \"is_active\": false,\n                    \"created_at\": \"2021-10-26T00:45:57.900495+06:00\",\n                    \"updated_at\": \"2022-01-06T19:37:48.217024+06:00\"\n                },\n                {\n                    \"id\": 3,\n                    \"name\": \"Food & Groceries\",\n                    \"image\": \"http://66.42.33.227/media/primary_category/099fc60d-a31c-4a11-80eb-e2da0161dadf.png\",\n                    \"slug\": \"food-groceries\",\n                    \"class_name\": \"food\",\n                    \"serial_no\": 3,\n                    \"is_active\": false\n                }\n            ],\n            \"secondary_categories\": [\n                {\n                    \"id\": 3,\n                    \"name\": \"Meat & Fish\",\n                    \"image\": \"http://66.42.33.227/media/secondary_category/346dee3d-8b01-4a2e-8d88-32ff89fb95c7.png\",\n                    \"slug\": \"meat-fish\",\n                    \"class_name\": \"null\",\n                    \"serial_no\": 3,\n                    \"is_active\": true,\n                    \"primary_category\": 3\n                }\n            ],\n            \"child_categories\": [\n                {\n                    \"id\": 12,\n                    \"secondary_categories\": {\n                        \"id\": 3,\n                        \"primary_categories\": {\n                            \"id\": 3,\n                            \"name\": \"Food & Groceries\",\n                            \"image\": \"/media/primary_category/099fc60d-a31c-4a11-80eb-e2da0161dadf.png\",\n                            \"slug\": \"food-groceries\",\n                            \"class_name\": \"food\",\n                            \"serial_no\": 3,\n                            \"is_active\": false\n                        },\n                        \"name\": \"Meat & Fish\",\n                        \"image\": \"/media/secondary_category/346dee3d-8b01-4a2e-8d88-32ff89fb95c7.png\",\n                        \"slug\": \"meat-fish\",\n                        \"class_name\": \"null\",\n                        \"serial_no\": 3,\n                        \"is_active\": true,\n                        \"primary_category\": 3\n                    },\n                    \"name\": \"Meat\",\n                    \"image\": \"http://66.42.33.227/media/child_category/00734f4e-9de0-4675-a59d-d0708d173444.jpg\",\n                    \"slug\": \"meat\",\n                    \"class_name\": \"null\",\n                    \"serial_no\": 1,\n                    \"is_active\": true,\n                    \"secondary_category\": 3\n                }\n            ],\n            \"tags\": [\n                {\n                    \"id\": 6,\n                    \"name\": \"meat\"\n                }\n            ],\n            \"taxs\": [],\n            \"gallery_images\": [],\n            \"new_price\": 7.0,\n            \"brands\": null,\n            \"product_reviews\": [],\n            \"total_reviews\": 0,\n            \"childproductdetails\": [],\n            \"product_units\": {\n                \"id\": 2,\n                \"name\": \"Kg\"\n            },\n            \"product_name\": \"Hybrid Sonali Murgi\",\n            \"product_sku\": \"OBF043\",\n            \"minimum_purchase_price\": 0.0,\n            \"regular_price\": 7.0,\n            \"discount_price\": 0.0,\n            \"whole_sell_price\": null,\n            \"discount_from_date\": null,\n            \"discount_to_date\": null,\n            \"is_pre_order\": false,\n            \"url_link\": null,\n            \"youtube_url\": \"\",\n            \"product_return_policy\": null,\n            \"pre_order_shipping_estimate\": \"\",\n            \"pre_order_policy\": \"\",\n            \"is_free_delivery\": false,\n            \"is_fast_delivery\": false,\n            \"is_attribue\": false,\n            \"is_product_seo\": false,\n            \"is_up_sell\": false,\n            \"is_cross_sell\": false,\n            \"is_whole_sell\": false,\n            \"upload_type\": false,\n            \"virtual_file\": null,\n            \"meta_tag\": \"\",\n            \"meta_description\": \"\",\n            \"stock_quantity\": 1,\n            \"alert_stock_quantity\": 0,\n            \"purchase_quantity\": null,\n            \"is_estimated_shipping\": false,\n            \"estimated_shipping_time\": null,\n            \"is_feature_product\": true,\n            \"is_mandatory_advance_payment\": false,\n            \"discount_type\": 3,\n            \"stock_type\": 1,\n            \"product_type\": 1,\n            \"unit_amount\": 1.0,\n            \"feature_image\": \"http://66.42.33.227/media/product_features/fd73f78b-6bfb-42e5-9b7f-c48e0da7563a.jpeg\",\n            \"product_summary\": \"\",\n            \"product_details\": \"<p><br></p>\",\n            \"is_active\": true,\n            \"slug\": \"hybrid-sonali-murgi\",\n            \"total_sale\": null,\n            \"status\": false,\n            \"is_campaign\": false,\n            \"is_addable_cashback\": false,\n            \"is_cashback\": false,\n            \"cashback_amount\": 0.0,\n            \"add_able_cashback_amount\": 0.0,\n            \"avg_rating\": 5.0,\n            \"brand\": null,\n            \"product_unit\": 2,\n            \"created_by\": null,\n            \"updated_by\": null\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://66.42.33.227/api/v1/no-token-product-list/84/",
+							"protocol": "http",
+							"host": [
+								"66",
+								"42",
+								"33",
+								"227"
+							],
+							"path": [
+								"api",
+								"v1",
+								"no-token-product-list",
+								"84",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "create-order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token b9b85883bd3836979b7f0fff2914f5d78d15e685",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ref_code\": \"R15\",\n    \"items\": [5,8],\n    \"ordered\": false,\n    \"billing_address\": \"Dhormopur, sundorgonj, Gaibandha 5700\",\n    \"being_delivered\": true,\n    \"received\": false,\n    \"status\": 0,\n    \"payment\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/commerce/order/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"commerce",
+								"order",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all-orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token b9b85883bd3836979b7f0fff2914f5d78d15e685",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/commerce/orders/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"commerce",
+								"orders",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token b9b85883bd3836979b7f0fff2914f5d78d15e685",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 16,\n    \"items\": [5],\n    \"ordered\": true,\n    \"being_delivered\": true,\n    \"received\": true,\n    \"status\": 2,\n    \"payment\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/commerce/order/90B600/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"commerce",
+								"order",
+								"90B600",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "order details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token b9b85883bd3836979b7f0fff2914f5d78d15e685",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/commerce/order/90B600/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"commerce",
+								"order",
+								"90B600",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"dev\",\n    \"password\": \"dev@2022\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/login/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
