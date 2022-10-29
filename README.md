@@ -1,5 +1,5 @@
 # Eshop ecommerce Package
-##### The project is a basically Django E-commerce package which users can implemented any project for the blog app.
+##### eShop is an e-commerce platform which will be capable of providing every kind of goods and products from every sector to every consumer located in Bangladesh. The world’s market place will be only finger-tips away for any customer in possession of a smartphone/computer and an internet connection.
 
 ## Setup
 - Python 3.8
