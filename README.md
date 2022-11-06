@@ -32,7 +32,7 @@ pip install -r requirements.text
 
 -------------------------------------------
 ```bash
-|--> sample.env
+|--> .sample.env
 |--> .env
 ```
 
