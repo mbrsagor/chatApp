@@ -7,6 +7,7 @@ from ChatApp.models import *
 class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         self.room_name = f"room_{self.scope['url_route']['kwargs']['room_name']}"
+        print(f"Room name: {self.room_name}")
         await self.channel_layer.group_add(self.room_name, self.channel_name)
         await self.accept()
         
@@ -33,7 +34,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
             'sender': data['sender'],
             'message': data['message']
         }
-        print(response_data)
+        # print(response_data)
         await self.send(text_data=json.dumps({'message': response_data}))
 
     @database_sync_to_async
