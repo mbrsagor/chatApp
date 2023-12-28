@@ -20,19 +20,14 @@
                 <div class="chat-body" id="tasks">
                     <div class="message" id="chatContainer">
                       <!-- received messages and displayed here -->
-                        
-                            
                                 <div class="receive">
                                     <p style="color: #000;"> {{i.message}}<strong>-{{i.sender}}</strong></p>
                                 </div>
-                            
                                 <div class="send">
                                     <p style="color: #000;">{{i.message}}</p>
                                 </div>
-                            
                     <!-- end receive messages -->
                     </div>
-
                     <div class="form">
                         <form action="" id="message-form" method="POST">
                             {% csrf_token %}
@@ -50,8 +45,6 @@
         var chatContainer = document.getElementById("chatContainer");
         chatContainer.scrollTop = chatContainer.scrollHeight;
     }
-
-
 </script>
 <style>
 
