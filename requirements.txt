@@ -11,6 +11,7 @@ cryptography==41.0.3
 daphne==4.0.0
 Django==4.2.5
 django-channels==0.7.0
+django-environ==0.11.2
 hyperlink==21.0.0
 idna==3.4
 incremental==22.10.0
